@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date of Birth </title>
+ <style>
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+button {
+  background-color: #04AA6D;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+
+.container {
+  margin: 0px auto;
+  width: 800px;
+  position: relative;
+  padding: 8px;
+  background-color: #f1f1f1;
+}
+.a-container{
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  width: 800px;
+  position: relative;
+  padding: 8px;
+  background-color: #f1f1f1;
+}
+span{
+  width: 85%;
+  height: 20px;
+  font-size: 18px;
+}
+
+ </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+<label>Enter Name: </label><br>
+<input type="text" name="name" id="name"><br>
+<label>Enter Date fo Birth:</label><br>
+<input type="date" name="dob" id="dob"><br>
+<button type="button" onclick="myFunction()">Calculate</button><br>
+</div>
+</div>
+<div class="a-container">
+<div style="width: 100%;">
+<span>Name:</span>
+<span id="name1" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Date of Birth:</span>
+<span id="brith" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Year:</span>
+<span id="year" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Days:</span>
+<span id="day" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Hours:</span>
+<span id="hours" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Minutes:</span>
+<span id="Minutes" style="float: right;"></span>
+</div>
+<div style="width: 100%;">
+<span>Seconds:</span>
+<span id="seconds" style="float: right;"></span>
+</div>
+</div>
+
+<script>
+  function myFunction() {
+var name= document.getElementById("name").value;
+var dob = document.getElementById("dob").value;
+
+console.log(name);
+console.log(dob);
+document.getElementById("name1").innerHTML = name;
+document.getElementById("brith").innerHTML = dob;
+
+// years
+var dobDate = new Date(dob);
+var dt2 = new Date();
+var ageDifMs = dt2.getTime() - dobDate.getTime();
+var ageDate = new Date(ageDifMs);var total = Math.abs(ageDate.getUTCFullYear() - 1970);
+console.log("total",total);
+document.getElementById("year").innerHTML = total;
+
+// dates
+   var dt1 = new Date(dob);
+   var diff = dt2.getTime() - dt1.getTime();
+   var days = diff/(1000 * 60 * 60 * 24);
+   console.log("dt1",dt1);
+   console.log("now",dt2);
+   console.log("days",Math.ceil(days));
+   document.getElementById("day").innerHTML = Math.ceil(days);
+
+  //  horus
+   const diffInMs = Math.abs(dt2 - dt1);
+   var hours = diffInMs / (1000 * 60 * 60);
+   console.log("hours",Math.ceil( hours));
+   document.getElementById("hours").innerHTML = Math.ceil(hours);
+
+  //  Minutes
+  const diffInmin = Math.abs(dt2 - dt1);
+  var Minutes = diffInmin / (1000 * 60);
+  console.log("Minutes",Math.ceil( Minutes));
+  document.getElementById("Minutes").innerHTML = Math.ceil(Minutes);
+//seconds
+ const diffInSe = Math.abs(dt2 - dt1);
+  var seconds = diffInSe / 1000;
+  console.log("seconds",Math.ceil(seconds));
+  document.getElementById("seconds").innerHTML = Math.ceil(seconds);
+
+  
+
+
+  }
+</script>
+
+</body>
+</html>

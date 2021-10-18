@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOB</title>
+
+<script>
+  function validateForm() {
+  console.log("test");
+var name  =  document.getElementById("name").value;
+var dob = document.getElementById("dob").value;
+console.log(name)
+console.log(dob)  
+document.write(name);
+document.write(dob);
+var ageDifMs = Date.now() - dob.getTime();
+var ageDate = new Date(ageDifMs); 
+console.log(ageDate.getFullYear);
+return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+</script>
+</head>
+<body>
+  <p>Create a html form , which takes name and date of birth, with a call-to-action button that calculates the time difference between the input DOB and the current date in Days, Hours , Minutes</p>
+  <form name="myForm"  onsubmit="validateForm()" method="post" >
+  <input type="text" name="name" id="name">
+  <input type="date" name="dob" id="dob">
+  <input type="submit" value="calculate">
+</form>
+</body>
+</html>

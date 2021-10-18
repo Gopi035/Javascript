@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shooting</title>
+
+
+  <script>
+     var counter = 0;
+    var player2Win =0;
+    var player1Win =0;
+    function myFunction() {
+      var playerOneHealth =100;
+      var playerTwoHealth = 100; 
+      counter++;
+  if(counter <= 5 && player1Win <3 &&player2Win < 3 ){
+  for (let rounds = counter; rounds <= counter ; rounds++) {
+     console.log("rounds",rounds);
+     for (let index = 0; index <500; index++) {
+        power = Math.floor(Math.random() * 6);
+          if(index % 2 ==0){
+            playerTwoHealth = playerTwoHealth - power;
+           
+            if (playerTwoHealth <=0) {
+              player1Win = player1Win +1;
+              console.log("player-1-Win",player1Win);
+              document.getElementById('playerId1').innerHTML = player1Win;
+            
+           break;
+            }
+            
+          }
+          else{
+            playerOneHealth = playerOneHealth - power;
+          if (playerOneHealth <=0) {
+            player2Win =player2Win+1;
+            console.log("player-2-Win",player2Win);
+            document.getElementById('playerId2').innerHTML = player2Win;
+           break;
+         
+          }
+
+           }
+
+        
+
+       }
+      
+ 
+  }
+ 
+
+
+}
+          if (player1Win == 3) {
+          document.getElementById('won').innerHTML = "Player 1 Won the Match";
+         }
+
+         if (player2Win == 3) {
+         document.getElementById('won').innerHTML = "Player 2 Won the Match";
+      
+        }
+
+
+
+    
+
+
+
+
+    
+
+     
+
+    }
+    </script>
+</head>
+<body>
+
+  <button type="button" onclick="myFunction()">Start Game</button>
+  <div>
+  <span>Player - 1 - Won :</span>
+  <span id="playerId1"></span>
+  </div>
+  <div>
+    <span>Player - 2- Won :</span>
+    <span id="playerId2"></span>
+  </div>
+  <div>
+   <span id="won"></span>
+  </div>
+
+
+  
+</body>
+</html>

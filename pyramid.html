@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+        <title>JavaScript to print Diamond pattern!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function printDiamond() {
+          
+                var limit = document.getElementById("limit").value;
+
+              
+
+                var space = limit;
+                for (i = 1; i <= limit; i++) {
+                    for (j = 1; j <= space; j++) {
+                   
+                        document.write(" ");
+                    }
+                    space--;
+                    for (j = 1; j <= 2 * i - 1; j++) {
+                   
+                        document.write("*");
+                    }
+                   
+                    document.write(" ","<br>");
+                }
+
+                space = 2;
+                for (i = 1; i <= limit; i++) {
+                    for (j = 1; j <= space; j++) {
+                   
+                        document.write(" ");
+                    }
+                    space++;
+                    for (j = 1; j <= 2 * (limit - i) - 1; j++) {
+                        
+                        document.write("*");
+                    }
+                   
+                    document.write(" ","<br>");
+                }
+               
+            }
+        </script>
+    </head>
+    <body>
+       
+        Enter the limit: <input type="number" id="limit" min="2" max="100" />
+        <input type="button" value="Print Diamond Pattern!" onclick="printDiamond()" name="print" >
+      
+        
+    </body>
+</html>
